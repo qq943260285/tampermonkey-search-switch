@@ -1,5 +1,21 @@
 
-<img src="assets/logo_ico.png"/>
+<p align=center>
+  <img src="assets/logo_ico.png"/>
+  <br>
+  <img src="https://img.shields.io/github/stars/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/contributors/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/commit-activity/y/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/last-commit/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <br>
+  <img src="https://img.shields.io/github/issues/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/issues-pr/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/watchers/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <img src="https://img.shields.io/github/issues-closed/qq943260285/tampermonkey-search-switch?style=flat-square"/>
+  <br>
+  tampermonkey-search-switch，一款专为 Tampermonkey 插件打造的 搜索引擎助手 脚本。
+</p>
+
+
 
 # tampermonkey-search-switch
 
