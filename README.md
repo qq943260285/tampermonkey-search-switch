@@ -46,4 +46,21 @@
   通过 GreasyFork 安装脚本: **[点我](https://greasyfork.org/scripts/434182)**
 
   
-  
+
+### 💡 脚本效果
+
+
+<p align=center>
+  <img src="https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/google.png"/>
+  <br>
+  <img src="https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/百度.png"/>
+  <br>
+  <img src="https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/必应.png"/>
+  <br>
+  <img src="https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/知乎.png"/>
+  <br>
+  <img src="https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/github.png"/>
+  <br>
+</p>
+
+

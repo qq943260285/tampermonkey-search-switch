@@ -52,7 +52,7 @@
             // 是否自定义
             "customize": false,
             // 显示
-            "show": false,
+            "show": true,
         },
         {
             "index": 2,

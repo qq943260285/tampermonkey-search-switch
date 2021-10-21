@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name            搜索引擎助手
 // @namespace       https://github.com/qq943260285
-// @version         1.0.0
+// @version         1.0.1
 // @description     搜索引擎助手，搜索切换/搜索引擎切换，快速跳转/切换关键字搜索，自定义搜索站点，提供快捷搜索工具支持。
 // @author          小宇专属
 // @license         GPL-3.0-only
 // @icon            https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/logo_ico.png
 // @create          2021-10-20
-// @lastmodified    2021-10-20
+// @lastmodified    2021-10-21
 // @supportURL      https://github.com/qq943260285/tampermonkey-search-switch.git
 // @feedback-url    https://github.com/qq943260285/tampermonkey-search-switch.git
 // @note
@@ -112,7 +112,7 @@
         css: "",
         remark: "备注",
         customize: !1,
-        show: !1
+        show: !0
     }, {
         index: 2,
         name: "必应",
