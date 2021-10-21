@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="WeltTool.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="iconfont.js"></script>
+</head>
+<body>
+<svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-shezhi"></use>
+</svg>
+<div style=""></div>
+<div style=""></div>
+<div style=""></div>
+<div style="" id="test"></div>
+
+</body>
+<script>
+    (function () {
+        window.onload=function () {
+
+            new WeltTool({
+                // title:"xyzs小宇专属",
+                itemList : [
+                    {
+                        name: "名称",
+                        onload: (data) => {
+                            console.log("加载前")
+                        },
+                        onunload: (e, data) => {
+                            console.log("移除前")
+                        },
+                        onclick: (e, data) => {
+                            console.log("点击")
+                            window.open("http://www.baidu.com/", '_blank');
+                        },
+                        onmouseover: (e, data) => {
+                            console.log("鼠标移动到元素上方")
+                        },
+                        onmouseout: (e, data) => {
+                            console.log("鼠标移出元素上方")
+                        },
+                        show: (data) => {
+                            console.log("回调")
+                            return true
+                        },
+                        data: {},
+                        ioc: "http://www.baidu.com/file.ioc",
+                    },
+                    {
+                        name: "名称2",
+                        onload: (data) => {
+                            console.log("加载前")
+                        },
+                        onunload: (e, data) => {
+                            console.log("移除前")
+                        },
+                        onclick: (e, data) => {
+                            console.log("点击")
+                            window.open("http://www.baidu.com/", '_blank');
+                        },
+                        onmouseover: (e, data) => {
+                            console.log("鼠标移动到元素上方")
+                        },
+                        onmouseout: (e, data) => {
+                            console.log("鼠标移出元素上方")
+                        },
+                        show: (data) => {
+                            console.log("回调")
+                            return true
+                        },
+                        data: {},
+                        ioc: "http://www.baidu.com/file.ioc",
+                    },
+                    {
+                        name: "名称3",
+                        onload: (data) => {
+                            console.log("加载前")
+                        },
+                        onunload: (e, data) => {
+                            console.log("移除前")
+                        },
+                        onclick: (e, data) => {
+                            console.log("点击")
+                            window.open("http://www.baidu.com/", '_blank');
+                        },
+                        onmouseover: (e, data) => {
+                            console.log("鼠标移动到元素上方")
+                        },
+                        onmouseout: (e, data) => {
+                            console.log("鼠标移出元素上方")
+                        },
+                        show: (data) => {
+                            console.log("回调")
+                            return true
+                        },
+                        data: {},
+                        ioc: "http://www.baidu.com/file.ioc",
+                    },
+                    {
+                        name: "名称3",
+                        onload: (data) => {
+                            console.log("加载前")
+                        },
+                        onunload: (e, data) => {
+                            console.log("移除前")
+                        },
+                        onclick: (e, data) => {
+                            console.log("点击")
+                            window.open("http://www.baidu.com/", '_blank');
+                        },
+                        onmouseover: (e, data) => {
+                            console.log("鼠标移动到元素上方")
+                        },
+                        onmouseout: (e, data) => {
+                            console.log("鼠标移出元素上方")
+                        },
+                        show: (data) => {
+                            console.log("回调")
+                            return true
+                        },
+                        data: {},
+                        ioc: "http://www.baidu.com/file.ioc",
+                    },
+                    {
+                        name: "名称3名称3名称3名称3",
+                        onload: (data) => {
+                            console.log("加载前")
+                        },
+                        onunload: (e, data) => {
+                            console.log("移除前")
+                        },
+                        onclick: (e, data) => {
+                            console.log("点击")
+                            window.open("http://www.baidu.com/", '_blank');
+                        },
+                        onmouseover: (e, data) => {
+                            console.log("鼠标移动到元素上方")
+                        },
+                        onmouseout: (e, data) => {
+                            console.log("鼠标移出元素上方")
+                        },
+                        show: (data) => {
+                            console.log("回调")
+                            return true
+                        },
+                        data: {},
+                        ioc: "http://www.baidu.com/file.ioc",
+                    }
+                ]
+            });
+        }
+
+
+
+    })()
+</script>
+</html>

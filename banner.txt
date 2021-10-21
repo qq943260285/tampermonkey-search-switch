@@ -1,0 +1,16 @@
+// ==UserScript==
+// @name            <%= nameZh %>
+// @namespace       https://github.com/qq943260285
+// @version         <%= version %>
+// @description     <%= description %>
+// @author          <%= author %>
+// @license         <%= license %>
+// @icon            <%= icon %>
+// @create          <%= create %>
+// @lastmodified    <%= lastmodified %>
+// @supportURL      <%= git %>
+// @feedback-url    <%= git %>
+// @note
+// @include         *
+// @grant           GM_addStyle
+// ==/UserScript==
