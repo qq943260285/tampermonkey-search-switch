@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="WeltTool.js"></script>
-    <link rel="stylesheet" href="../css/index.css">
-    <script src="iconfont.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="WeltTool.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js"></script>
+    <script src="../../js/iconfont.min.js"></script>
 </head>
 <body>
 <svg class="icon" aria-hidden="true">
     <use xlink:href="#icon-shezhi"></use>
 </svg>
+
+
 <div style=""></div>
 <div style=""></div>
 <div style=""></div>
@@ -19,11 +22,11 @@
 </body>
 <script>
     (function () {
-        window.onload=function () {
+        window.onload = function () {
 
             new WeltTool({
                 // title:"xyzs小宇专属",
-                itemList : [
+                itemList: [
                     {
                         name: "名称",
                         onload: (data) => {
@@ -152,7 +155,6 @@
                 ]
             });
         }
-
 
 
     })()

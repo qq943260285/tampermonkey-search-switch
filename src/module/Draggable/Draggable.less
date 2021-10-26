@@ -1,0 +1,31 @@
+.xyzs-draggable-tool {
+
+  .xyzs-draggable {
+    background-image: url('http://source.unsplash.com/random/50x50');
+    position: relative;
+    height: 50px;
+    width: 50px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    -webkit-user-drag: element;
+  }
+
+  .xyzs-droppable {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+    border: 3px salmon solid;
+    background-color: white;
+  }
+
+  .xyzs-dragging {
+    border: 4px yellow solid;
+  }
+
+  .xyzs-drag-over {
+    background-color: #f4f4f4;
+    border-style: dashed;
+  }
+}

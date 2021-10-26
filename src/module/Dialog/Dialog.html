@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Dialog.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="Dialog.less">
+    <link rel="stylesheet/less" type="text/css" href="../Draggable/Draggable.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js"></script>
+    <script src="../Draggable/Draggable.js"></script>
+</head>
+<style>
+</style>
+<body>
+
+<BUTTON id="ok">ok</BUTTON>
+
+
+</body>
+<style>
+    .xyzs-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 450px;
+    }
+
+    .xyzs-div-item {
+        color: rgba(0, 0, 0, 0.5);
+        height: 25px;
+        width: 120px;
+        margin: 10px 5px;
+        text-align: center;
+    }
+</style>
+<script>
+    (
+        function () {
+            window.onload = function () {
+
+
+                let div = document.createElement('div');
+                div.className = 'xyzs-div'
+                // for (let i = 0; i < 5; i++) {
+                //     let item = document.createElement('div');
+                //     item.className = 'xyzs-div-item'
+                //     item.innerText = i
+                //     div.appendChild(item)
+                // }
+
+                new Draggable(div)
+                new Draggable(div)
+                new Draggable(div)
+                new Draggable(div)
+
+
+                var dialog = new Dialog({
+                    showBottom: true,
+                    showTop: true,
+                    text: "提示信息",
+                    height: "auth",
+                    width: "auth",
+                    title: "设置",
+                    document: div,
+                    model: 1,
+                    okClick: function (e) {
+                        console.log("ok")
+                    },
+                    cancelClick: function (e) {
+                        console.log("cancel")
+                    }
+                });
+
+                document.getElementById('ok').onclick = function (ev) {
+                    // alert('ok')
+                    console.log(dialog)
+                    dialog.show()
+
+                }
+            }
+        }
+    )()
+
+</script>
+</html>

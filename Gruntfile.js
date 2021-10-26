@@ -17,14 +17,14 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/',
-                    src: ['*.js', 'js/*.js'],
+                    src: ['**/*.js', '!**/*.min.js'],
                     dest: 'tmp/es5'
                 }]
             }
         },
         watch: {
             go: {
-                files: ['src/*.js', 'src/*/*.css'],
+                files: ['**/*.js', '**/*.css', '**/*.less'],
                 tasks: 'xyzs'
             }
         },
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                     banner: banner,
                 },
                 files: {
-                    'dist/js/index.js': ['tmp/es5/js/WeltTool.js', 'tmp/es5/index.js']
+                    'dist/js/index.js': ['tmp/es5/module/WeltTool/WeltTool.js', 'tmp/es5/index.js']
                 }
             },
         },
@@ -62,8 +62,50 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'src/css',
                     src: ['**/*.css', '!**/*.min.css'],
-                    dest: 'dist/css'
+                    dest: 'tmp/css'
                 }]
+            },
+            module: {
+                files: {
+                    'dist/css/index.css': ['tmp/module/WeltTool/WeltTool.css']
+                }
+            },
+            all: {
+                files: [{
+                    expand: true,
+                    cwd: 'tmp',
+                    src: ['**/*.css'],
+                    filter: 'isFile',
+                    rename: function () {
+                        return 'dist/css/index.css';
+                    }
+                }
+                ]
+            }
+        },
+        less: {
+            module: {
+                files: [{
+                    expand: true,
+                    cwd: 'src',
+                    src: ['**/*.less'],
+                    dest: 'tmp',
+                    ext: '.css',
+                    filter: 'isFile',
+                }]
+            },
+        },
+        copy: {
+            go: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src/',
+                        src: ['**/*.min.js', '**/*.min.css'],
+                        dest: 'tmp/',
+                        filter: 'isFile'
+                    },
+                ]
             }
         },
 
@@ -81,7 +123,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.registerTask('default', ['watch']);//cmd:grunt
-    grunt.registerTask('c', ['clean:tmp']);
-    grunt.registerTask('xyzs', ['clean', 'babel', 'uglify', 'cssmin', 'build']);//cmd:grunt xiaoyu
+    grunt.registerTask('test-copy', ['copy']);
+    grunt.registerTask('test-babel', ['babel']);
+    grunt.registerTask('test-clean', ['clean']);
+    grunt.registerTask('test-less', ['less']);
+    grunt.registerTask('test-uglify', ['uglify']);
+    grunt.registerTask('test-cssmin', ['cssmin:all']);
+    grunt.registerTask('xyzs', ['clean', 'copy', 'babel', 'uglify', 'less', 'cssmin:module', 'build']);//cmd:grunt xiaoyu
+
 }

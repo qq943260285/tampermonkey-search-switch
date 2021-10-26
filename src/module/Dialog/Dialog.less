@@ -1,0 +1,160 @@
+.xyzs-diolog {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 200ms;
+  -moz-transition: all 200ms; /* Firefox 4 */
+  -webkit-transition: all 200ms; /* Safari 和 Chrome */
+  -o-transition: all 200ms; /* Opera */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+
+  .rubberBand {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand
+  }
+
+  @keyframes rubberBand {
+    0% {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1)
+    }
+    30% {
+      -webkit-transform: scale3d(1.25, .75, 1);
+      transform: scale3d(1.25, .75, 1)
+    }
+    40% {
+      -webkit-transform: scale3d(.75, 1.25, 1);
+      transform: scale3d(.75, 1.25, 1)
+    }
+    50% {
+      -webkit-transform: scale3d(1.15, .85, 1);
+      transform: scale3d(1.15, .85, 1)
+    }
+    65% {
+      -webkit-transform: scale3d(.95, 1.05, 1);
+      transform: scale3d(.95, 1.05, 1)
+    }
+    75% {
+      -webkit-transform: scale3d(1.05, .95, 1);
+      transform: scale3d(1.05, .95, 1)
+    }
+    to {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1)
+    }
+  }
+
+  .xyzs-diolog-win {
+    opacity: 1;
+    background-color: #ffffff;
+    flex-direction: column-reverse;
+    //transition: all 500ms;
+    border-radius: 4px;
+    border: 1px solid #EBEEF5;
+    font-size: 18px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+    .xyzs-win-top {
+      width: 100%;
+      height: 32px;
+      line-height: 32px;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      display: flex;
+      margin-bottom: 10px;
+
+      .xyzs-top-title {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 10px;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.9);
+      }
+
+      .xyzs-top-close {
+        width: 25px;
+        height: 25px;
+        //background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACrUlEQVRYR9WXu2tUQRTGv7PsWmwhpFDx1RkCChYaKx+shdaCJoXYBbQQHwl7zxBTZC3MZs4Ni0YbH/kHNAEf6RWjnSkUFCQWgi/QQrAOe2TkLsyu99692RRXp7owZ873m3POnJlLyHlQzvr4vwCstYNEdBzAMVXdRkRbXQRV9RsRfQUwT0RLQRC8yRrZTBEQkcMALgE42XKsqj+I6FMEsJOINnmiCwBuMPNSN5CuACJyDcCVyNGyqi6WSqW7Y2NjX3znYRhuBnBaVc8A2B/N3WTmi2kQqQAi8gLAQQBvAcwy851uO3LzInIWgBPeo6ofjDH9SesSAay1K0S0y4kXCoXharX6Lot4y2ZmZmZ3s9m87yAAvGTmQ3HrYwFEZBbAhV7FEyCmmHmiE+IvgKjgnq9XPAHiSGdhxgHMR9V+zs95vV6vFAqFijGmlpYKa+3lZrP5cHx8/GPLLqqJ2wAWmPmUv74NIAzDvar6GsAyMw/6htbaGhFNAnjAzMNxECLicj6kqlc7QUXklTsdqnrAGOO+/4w2ABE5D+AWEY0GQXC9U6QlEAeRNuf8hGE4qaouehPMPJUE8BRAhYi2BEHwPW2XPkQ3ceen0WhsX11d/QzgGTMfjQWw1r4H0GeMcU0lcfiCkdFQWmpajqy1blM/jTEDSRH4BWCFmVudLAuEs0msC9+BiCwD6Gfmjf8mQI8pKAE4kSUKWVKw5iKs1WobyuXyEwDumk5MRaYi7PUY1uv1vmKx+FhVXb+Phch0DNMaURiGI6p6L0nAWruDiB4B2Keqo8aYtj6SqRG5yhSR2FYcNZORIAjmko6GtXaAiKYBzDHz4ppbcQTgXj/5XUYRRH7Xsde18nuQeLnL70nmQeT3KPUg8nuW+0cutx+TtKt5vXNdf0zWK9Btfe4AvwHQjsswF+hMswAAAABJRU5ErkJggg==") no-repeat;
+        background-size: cover;
+        margin: 3px 5px;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.5);
+
+        &:hover {
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+    }
+
+    .xyzs-win-content {
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      display: flex;
+    }
+
+    .xyzs-win-bottom {
+      margin-top: 10px;
+      width: 100%;
+      height: 35px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+
+      .xyzs-win-button {
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 3px;
+        margin: 5px 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+        width: fit-content;
+        height: fit-content;
+      }
+
+      .xyzs-win-ok {
+        color: #fff;
+        background-color: #409eff;
+        border-color: #409eff;
+
+        &:hover {
+          background: #66b1ff;
+          border-color: #66b1ff;
+          color: #fff;
+        }
+      }
+
+      .xyzs-win-cancel {
+        color: #606266;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+
+        &:hover {
+          color: #409eff;
+          border-color: #c6e2ff;
+          background-color: #ecf5ff;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Draggable.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="Draggable.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js"></script>
+</head>
+
+
+<body>
+<div id="xyzs">
+
+</div>
+<div id="xyzs2">
+
+</div>
+
+</body>
+
+<script>
+    (function () {
+        window.onload = function (ev) {
+
+            new Draggable(document.getElementById('xyzs'));
+
+            new Draggable(document.getElementById('xyzs2'));
+
+        }
+
+
+    })()
+</script>
+</html>

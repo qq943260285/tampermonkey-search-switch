@@ -1,0 +1,46 @@
+.xyzs-welt-tool {
+  position: fixed;
+  display: flex;
+  background-color: #000;
+  opacity: .3;
+  border-radius: 0 40px 40px 0;
+  padding: 10px 35px 10px 5px;
+  flex-direction: column;
+  bottom: 100px;
+  left: 0;
+  z-index: 99999;
+  transition: all 400ms;
+  box-shadow: 2px 2px 4px 0 #c1c1c1;
+
+  &:hover {
+    opacity: 1;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .xyzs-title-div {
+    font-size: 5px;
+    margin: 0 5px 5px 5px;
+  }
+
+  .xyzs-item-list-div {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+    .xyzs-item-div {
+      display: flex;
+      margin: 0 5px;
+      color: #0cc;
+      font-size: 14px;
+      cursor: pointer;
+      line-height: 1;
+      &:hover {
+        //color: #00fd1c;
+        color: #00ffff;
+      }
+    }
+  }
+}
+
+
+

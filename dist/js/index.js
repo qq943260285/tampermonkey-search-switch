@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            搜索引擎助手
+// @name            搜索引擎助手：搜索切换/搜索引擎切换，快速跳转/切换关键字搜索
 // @namespace       https://github.com/qq943260285
 // @version         1.0.1
 // @description     搜索引擎助手，搜索切换/搜索引擎切换，快速跳转/切换关键字搜索，自定义搜索站点，提供快捷搜索工具支持。
@@ -7,7 +7,7 @@
 // @license         GPL-3.0-only
 // @icon            https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/logo_ico.png
 // @create          2021-10-20
-// @lastmodified    2021-10-21
+// @lastmodified    2021-10-26
 // @supportURL      https://github.com/qq943260285/tampermonkey-search-switch.git
 // @feedback-url    https://github.com/qq943260285/tampermonkey-search-switch.git
 // @note
@@ -19,12 +19,12 @@
 
 (function() {
     window.WeltTool = function(config) {
-        if (!config) config = new Object();
+        if (!config) config = {};
         if (!config.id) config.id = "xyzs-welt-tool";
         if (!config.itemList || !config.itemList.length) config.itemList = [];
         var mainDivDom, titleDiv = document.createElement("style"), bodyDom = document.getElementsByTagName("body")[0];
         if (titleDiv.innerHTML = "<%= indexCss %>", bodyDom.appendChild(titleDiv), (mainDivDom = document.createElement("div")).id = config.id, 
-        mainDivDom.className = "xyzs-main-div", config.color) mainDivDom.style.backgroundColor = config.color;
+        mainDivDom.className = "xyzs-welt-tool", config.color) mainDivDom.style.backgroundColor = config.color;
         if (mainDivDom.onmouseout = function(e) {
             mainDivDom.style.left = 30 - mainDivDom.offsetWidth + "px";
         }, mainDivDom.onmouseover = function(e) {
@@ -41,7 +41,7 @@
             if (item.show(item.data)) {
                 if (item.onload) item.onload(item.data);
                 itemDiv = document.createElement("div");
-                itemDiv.className = "xyzs-item-div", itemDiv.onclick = function(e) {
+                itemDiv.className = "xyzs-item-div", itemDiv.title = item.title, itemDiv.onclick = function(e) {
                     if (item.onclick) item.onclick(e, item.data);
                 }, itemDiv.onmouseout = function(e) {
                     if (item.onmouseout) item.onmouseout(e, item.data);
@@ -80,6 +80,7 @@
             var search = searchList[i];
             itemList.push({
                 name: search.name,
+                title: search.host,
                 onclick: function(e, data) {
                     window.open(function(search) {
                         var keywordString = getKeywordString();
@@ -158,7 +159,7 @@
     } ];
     !function() {
         (function() {
-            if (top != window) return;
+            if (top !== window) return;
             for (var i = 0; i < searchList.length; i++) if (searchList[i].host === window.location.host) return createDiv();
         })();
     }();

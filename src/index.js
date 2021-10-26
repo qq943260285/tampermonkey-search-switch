@@ -175,6 +175,7 @@
             itemList.push(
                 {
                     name: search.name,
+                    title: search.host,
                     // onload: (data) => {
                     //     console.log("加载前")
                     // },
@@ -210,7 +211,7 @@
     }
 
     function init() {
-        if (top != window) {
+        if (top !== window) {
             //不是顶级窗口不渲染
             console.log("soTab！不是顶部窗口");
             return;

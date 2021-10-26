@@ -1,7 +1,7 @@
 (function () {
     window.WeltTool = function (config) {
         if (!config) {
-            config = new Object()
+            config = {}
         }
         // config.color = "#2b2b2b"
         // config.height = "500px"
@@ -55,7 +55,7 @@
         //生成切换框
         mainDivDom = document.createElement('div');
         mainDivDom.id = config.id;
-        mainDivDom.className = "xyzs-main-div";
+        mainDivDom.className = "xyzs-welt-tool";
         if (config.color) {
             mainDivDom.style.backgroundColor = config.color
         }
@@ -91,6 +91,7 @@
                 }
                 let itemDiv = document.createElement('div');
                 itemDiv.className = 'xyzs-item-div'
+                itemDiv.title=item.title
                 itemDiv.onclick = (e) => {
                     if (item.onclick) {
                         item.onclick(e, item.data);
