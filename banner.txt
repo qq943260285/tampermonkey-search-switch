@@ -10,7 +10,7 @@
 // @lastmodified    <%= lastmodified %>
 // @supportURL      <%= git %>
 // @feedback-url    <%= git %>
-// @note
+// @note            1.更新 google 地区域名；2.优化程序；
 // @include         *
 // @grant           GM_addStyle
 // ==/UserScript==

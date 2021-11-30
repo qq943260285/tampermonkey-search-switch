@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name            搜索引擎助手：搜索切换/搜索引擎切换，快速跳转/切换关键字搜索
 // @namespace       https://github.com/qq943260285
-// @version         1.0.1
+// @version         1.1.0
 // @description     搜索引擎助手，搜索切换/搜索引擎切换，快速跳转/切换关键字搜索，自定义搜索站点，提供快捷搜索工具支持。
 // @author          小宇专属
 // @license         GPL-3.0-only
 // @icon            https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/logo_ico.png
 // @create          2021-10-20
-// @lastmodified    2021-10-26
+// @lastmodified    2021-11-30
 // @supportURL      https://github.com/qq943260285/tampermonkey-search-switch.git
 // @feedback-url    https://github.com/qq943260285/tampermonkey-search-switch.git
-// @note
+// @note            1.更新 google 地区域名；2.优化程序；
 // @include         *
 // @grant           GM_addStyle
 // ==/UserScript==
@@ -56,7 +56,7 @@
     function getKeywordString() {
         for (var i = 0; i < searchList.length; i++) {
             var urlParam = searchList[i];
-            if (urlParam.host === window.location.host) {
+            if (matchItemHost(urlParam)) {
                 urlParam = function(url) {
                     for (var pList = url.substring(url.indexOf("?") + 1).split("&"), i = 0; i < pList.length; i++) {
                         var pair = pList[i].split("=");
@@ -88,7 +88,7 @@
                     }(search), "_blank");
                 },
                 show: function(data) {
-                    return search.show && search.host !== window.location.host;
+                    return search.show && !matchItemHost(search);
                 },
                 data: search
             });
@@ -97,6 +97,12 @@
             title: getKeywordString(),
             itemList: itemList
         });
+    }
+    function matchItemHost(item) {
+        if (item.host === window.location.host) return 1;
+        var countryHost = item.countryHost;
+        if (countryHost && 0 < countryHost.length) for (var j = 0; j < countryHost.length; j++) if (countryHost[j] === window.location.host) return 1;
+        return;
     }
     var SEARCH_TYPE_RequestParam = 0, CONFIG = {
         KeywordSymbol: "%s",
@@ -113,7 +119,8 @@
         css: "",
         remark: "备注",
         customize: !1,
-        show: !0
+        show: !0,
+        countryHost: [ "www.baidu.com" ]
     }, {
         index: 2,
         name: "必应",
@@ -141,7 +148,8 @@
         host: "www.google.com",
         searchUrl: "https://www.google.com/search?q=%s",
         searchType: SEARCH_TYPE_RequestParam,
-        show: !0
+        show: !0,
+        countryHost: [ "www.goo.gl", "www.google.com.af", "www.google.com.ag", "www.google.com.ai", "www.google.com.ar", "www.google.com.au", "www.google.com.bd", "www.google.com.bh", "www.google.com.bn", "www.google.com.bo", "www.google.com.br", "www.google.com.by", "www.google.com.bz", "www.google.com.co", "www.google.com.co.jp", "www.google.com.cu", "www.google.com.cy", "www.google.com.do", "www.google.com.ec", "www.google.com.eg", "www.google.com.et", "www.google.com.fj", "www.google.com.ge", "www.google.com.gh", "www.google.com.gi", "www.google.com.gr", "www.google.com.gt", "www.google.com.hk", "www.google.com.iq", "www.google.com.jm", "www.google.com.jo", "www.google.com.kh", "www.google.com.kw", "www.google.com.lb", "www.google.com.ly", "www.google.com.mm", "www.google.com.mt", "www.google.com.mx", "www.google.com.my", "www.google.com.na", "www.google.com.nf", "www.google.com.ng", "www.google.com.ni", "www.google.com.np", "www.google.com.nr", "www.google.com.om", "www.google.com.pa", "www.google.com.pe", "www.google.com.pg", "www.google.com.ph", "www.google.com.pk", "www.google.com.pr", "www.google.com.py", "www.google.com.qa", "www.google.com.ru", "www.google.com.sa", "www.google.com.sb", "www.google.com.sg", "www.google.com.sl", "www.google.com.sv", "www.google.com.tj", "www.google.com.tr", "www.google.com.tw", "www.google.com.ua", "www.google.com.uy", "www.google.com.vc", "www.google.com.vn", "www.google.ac", "www.google.ad", "www.google.ae", "www.google.af", "www.google.ag", "www.google.al", "www.google.am", "www.google.as", "www.google.at", "www.google.az", "www.google.ba", "www.google.be", "www.google.bf", "www.google.bg", "www.google.bi", "www.google.bj", "www.google.bs", "www.google.bt", "www.google.by", "www.google.bo", "www.google.ca", "www.google.cat", "www.google.cc", "www.google.cd", "www.google.cf", "www.google.cg", "www.google.ch", "www.google.ci", "www.google.cl", "www.google.cm", "www.google.co", "www.google.cv", "www.google.cz", "www.google.co.ao", "www.google.co.bw", "www.google.co.ck", "www.google.co.cr", "www.google.co.hu", "www.google.co.id", "www.google.co.il", "www.google.co.im", "www.google.co.in", "www.google.co.je", "www.google.co.jp", "www.google.co.ke", "www.google.co.kr", "www.google.co.ls", "www.google.co.ma", "www.google.co.mz", "www.google.co.nz", "www.google.co.th", "www.google.co.tz", "www.google.co.ug", "www.google.co.uk", "www.google.co.uz", "www.google.co.ve", "www.google.co.vi", "www.google.co.za", "www.google.co.zm", "www.google.co.zw", "www.google.de", "www.google.dj", "www.google.dk", "www.google.dm", "www.google.do", "www.google.dz", "www.google.ec", "www.google.ee", "www.google.es", "www.google.hk", "www.google.mx", "www.google.ng", "www.google.ph", "www.google.pk", "www.google.pl", "www.google.pn", "www.google.ps", "www.google.pt", "www.google.qa", "www.google.ro", "www.google.rs", "www.google.ru", "www.google.rw", "www.google.sc", "www.google.se", "www.google.sh", "www.google.si", "www.google.sk", "www.google.sm", "www.google.sn", "www.google.so", "www.google.st", "www.google.sg", "www.google.sl", "www.google.td", "www.google.tg", "www.google.tw", "www.google.tk", "www.google.tl", "www.google.tm", "www.google.tn", "www.google.to", "www.google.tt", "www.google.ua", "www.google.vg", "www.google.vn", "www.google.vu", "www.google.ws" ]
     }, {
         index: 6,
         name: "搜狗",
@@ -157,10 +165,8 @@
         searchType: SEARCH_TYPE_RequestParam,
         show: !0
     } ];
-    !function() {
-        (function() {
-            if (top !== window) return;
-            for (var i = 0; i < searchList.length; i++) if (searchList[i].host === window.location.host) return createDiv();
-        })();
-    }();
+    (function() {
+        if (top !== window) return;
+        for (var i = 0; i < searchList.length; i++) if (matchItemHost(searchList[i])) return createDiv();
+    })();
 }();
