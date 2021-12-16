@@ -7,7 +7,7 @@
 // @license         GPL-3.0-only
 // @icon            https://raw.githubusercontent.com/qq943260285/tampermonkey-search-switch/master/assets/logo_ico.png
 // @create          2021-10-20
-// @lastmodified    2021-11-30
+// @lastmodified    2021-12-16
 // @supportURL      https://github.com/qq943260285/tampermonkey-search-switch.git
 // @feedback-url    https://github.com/qq943260285/tampermonkey-search-switch.git
 // @note            1.更新 google 地区域名；2.优化程序；
@@ -68,7 +68,7 @@
                         var pair = pList[i].split("=");
                         if (pair[0] === name) return pair[1];
                     }
-                    return !1;
+                    return "";
                 }(window.location.href, urlParam);
                 return urlParam;
             }
